@@ -6,6 +6,6 @@
     <title>Sampel </title>
 </head>
 <body>
-    <h1>Sampel Monitoring</h1>
+    <h1>Sampel Projek Monitoring</h1>
 </body>
 </html>
