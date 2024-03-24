@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Ktp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +22,22 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 // USER ROUTE
 Route::middleware(['auth', 'role:timses'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('user-home');
+    Route::get('/dashboard', function (Request $request) {
+        $ktp = Ktp::where('user_id', '=', $request->user()->id)->get();
+        return view('user-home', compact('ktp'));
     })->name('dashboard');
+
+    Route::post('/dashboard', function (Request $request) {
+        $fileName = uniqid(). '.png';
+        Ktp::create([
+            'user_id' => $request->user()->id,
+            'file' => $fileName
+        ]);
+
+        $request->file('file')->storePubliclyAs('public/ktp', $fileName);
+
+        return back();
+    });
 });
 
 

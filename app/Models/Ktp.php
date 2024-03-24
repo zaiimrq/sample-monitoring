@@ -9,4 +9,7 @@ class Ktp extends Model
 {
     use HasFactory;
     protected $table = 'ktp';
+    protected $fillable = [
+        'user_id', 'file'
+    ];
 }
