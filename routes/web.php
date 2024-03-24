@@ -37,4 +37,4 @@ Route::get('logout', function (Request $request) {
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return redirect()->route('login');
-})->middleware(['auth']); 
+})->middleware(['auth'])->name('logout');; 

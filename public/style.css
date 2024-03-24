@@ -80,6 +80,9 @@ body{
 .navbar{
     padding: 20px;
 }
+.bx{
+    font-size: 1.5rem;;
+}
 
 /* HEADER */
 .header{
@@ -106,9 +109,9 @@ footer{
 .wrapper{
     padding: 3rem 4rem;
 }
-.table-container-user{
+/* .table-container-user{
     padding: 3rem;
-}
+} */
 .table-container-user td img{
     max-width: 4rem;
 }
