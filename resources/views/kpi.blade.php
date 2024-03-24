@@ -39,7 +39,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12 ">
+            <div class="col-md-12 mr-5 ml-5">
             <table class="table table-kpi table-borderless">
                 <tbody>
                     <tr>

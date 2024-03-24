@@ -102,3 +102,13 @@ footer{
     font-size: var(--font-weight-medium);
 }
 
+/* USER CSS */
+.wrapper{
+    padding: 3rem 4rem;
+}
+.table-container-user{
+    padding: 3rem;
+}
+.table-container-user td img{
+    max-width: 4rem;
+}
