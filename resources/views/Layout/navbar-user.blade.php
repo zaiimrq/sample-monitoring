@@ -12,6 +12,7 @@
                 <a class="nav-link" href="">OPERASIONAL</a>
                 <a class="nav-link" href="">KENDALA</a>
                 <a class="nav-link" href="">PERMINTAAN MASYARAKAT</a>
+                <a class="nav-link" href="{{ route('logout') }}"><i class='bx bx-log-out' ></i></a>
         </div>
     </div>
 </nav>

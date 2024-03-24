@@ -22,6 +22,7 @@
                 <a class="nav-link" href="">GRAFIK KINERJA</a>
                 <a class="nav-link" href="">OPERASIONAL</a>
                 <a class="nav-link" href="">TABULASI DATA</a>
+                <a class="nav-link" href="{{ route('logout') }}"><i class='bx bx-log-out' ></i></a>
         </div>
     </div>
 </nav>
