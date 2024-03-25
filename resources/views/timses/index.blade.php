@@ -97,12 +97,19 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                
-                                <label for="file">Pilih Foto :</label>
-                                <input type="file" class="form-control-file" id=" file" name="file">
-                                @error('file')
-                                <span class="invalid-feedback d-block">{{ $message }}</span>
-                                @enderror
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="file">Pilih Foto :</label>
+                                        <input type="file" class="form-control-file" id="file" name="file"
+                                            onchange="prev()">
+                                        @error('file')
+                                        <span class="invalid-feedback d-block">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <img id="uploadPrev" src="" class="card-img shadow rounded-3" alt="">
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Upload</button>
                         </form>
@@ -124,6 +131,15 @@
 
 
         })
+
+        function prev() {
+           const file = $("input[type=file]#file").get(0).files[0];
+           const reader = new FileReader()
+           reader.onload = ()=>{
+            $('#uploadPrev').attr('src', reader.result)
+           }
+           reader.readAsDataURL(file)
+        }
     </script>
     @endpush
 
