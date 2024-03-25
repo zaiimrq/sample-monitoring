@@ -48,6 +48,8 @@
     <script>
         AOS.init();
     </script>
+
+    @stack('scripts')
 </body>
 
 </html>

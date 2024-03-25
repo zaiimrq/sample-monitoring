@@ -27,9 +27,6 @@
                         <!-- Connect ke Database lalu tampilkan nama file di sini, namun bisa di preview -->
                         <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-thumbnail preview" style="cursor:
                         pointer" alt="Gambar KTP" data-bs-toggle="modal" data-bs-target="#ktp">
-                        @section('modal-preview')
-                        <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-fluid" alt="Preview KTP">
-                        @endsection
                     </td>
                     <td width="20%">
                         <form action="" method="post" class="d-inline">
@@ -57,7 +54,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    @yield('modal-preview')
+                    <img src="" class="img-fluid" alt="Preview KTP">
                 </div>
             </div>
         </div>
@@ -88,3 +85,16 @@
     </div>
 </section>
 @endsection
+
+
+@push('scripts')
+
+<script>
+    $(function(){
+        $('.preview').click(function(){
+            const path = $(this).attr('src')
+            $('#ktp img').attr('src', path)
+        })
+    })
+</script>
+@endpush
