@@ -34,7 +34,7 @@ Route::middleware(['auth', 'role:timses'])->group(function () {
             'file' => $fileName
         ]);
 
-        $request->file('file')->storePubliclyAs('public/ktp', $fileName);
+        $request->file('file')->storePubliclyAs('ktp', $fileName);
 
         return back();
     });

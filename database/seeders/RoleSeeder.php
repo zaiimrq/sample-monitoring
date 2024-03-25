@@ -22,5 +22,8 @@ class RoleSeeder extends Seeder
 
         $timses = User::find(2);
         $timses->assignRole($role2);
+        
+        $timses = User::find(3);
+        $timses->assignRole($role2);
     }
 }

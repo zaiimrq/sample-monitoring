@@ -19,16 +19,20 @@
             </thead>
 
             <tbody>
-                @foreach ($ktp as $k)
+                @forelse ($ktp as $k)
                 <tr>
-                    <td width="10%">1</td>
+                    <td width="10%">{{ $loop->iteration }}</td>
                     <td>
                         <!-- Connect ke Database lalu tampilkan nama file di sini, namun bisa di preview -->
                         <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-thumbnail preview" style="cursor:
                         pointer" alt="Gambar KTP" data-bs-toggle="modal" data-bs-target="#ktp">
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="2">No data has been uploaded!</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
