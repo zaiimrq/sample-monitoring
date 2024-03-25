@@ -15,20 +15,39 @@
                 <tr>
                     <th>No</th>
                     <th>File</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach ($ktp as $k)
+                @forelse ($ktp as $k)
                 <tr>
-                    <td width="10%">1</td>
+                    <td width="10%">{{ $loop->iteration }}</td>
                     <td>
                         <!-- Connect ke Database lalu tampilkan nama file di sini, namun bisa di preview -->
                         <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-thumbnail preview" style="cursor:
                         pointer" alt="Gambar KTP" data-bs-toggle="modal" data-bs-target="#ktp">
+                        @section('modal-preview')
+                        <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-fluid" alt="Preview KTP">
+                        @endsection
+                    </td>
+                    <td width="20%">
+                        <form action="" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                        </form>
+                        <form action="{{ route('ktp.destroy') }}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <input type="hidden" name="fileName" value="{{ $k->file }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="2">No data has been uploaded!</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
@@ -38,7 +57,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img src="{{ asset('img/dummy-ktp.png') }}" class="img-fluid" alt="Preview KTP">
+                    @yield('modal-preview')
                 </div>
             </div>
         </div>
@@ -51,14 +70,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="uploadModalLabel">Upload Foto KTP</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="uploadForm" enctype="multipart/form-data" method="post">
+                    <form action="{{ route('ktp.upload') }}" id="uploadForm" enctype="multipart/form-data"
+                        method="post">
                         @csrf
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="file">Pilih Foto:</label>
                             <input type="file" class="form-control-file" id="file" name="file">
                         </div>

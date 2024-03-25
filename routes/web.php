@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\UploadKtpController;
 
 //ADMIN ROUTE
 
@@ -27,17 +27,8 @@ Route::middleware(['auth', 'role:timses'])->group(function () {
         return view('user-home', compact('ktp'));
     })->name('dashboard');
 
-    Route::post('/dashboard', function (Request $request) {
-        $fileName = uniqid(). '.png';
-        Ktp::create([
-            'user_id' => $request->user()->id,
-            'file' => $fileName
-        ]);
-
-        $request->file('file')->storePubliclyAs('public/ktp', $fileName);
-
-        return back();
-    });
+    Route::post('/dashboard', UploadKtpController::class)->name('ktp.upload');
+    Route::delete('/dashboard', [UploadKtpController::class, 'destroy'])->name('ktp.destroy');
 });
 
 
