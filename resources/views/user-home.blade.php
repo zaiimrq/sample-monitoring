@@ -45,7 +45,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="2">No data has been uploaded!</td>
+                    <td colspan="3">No data has been uploaded!</td>
                 </tr>
                 @endforelse
             </tbody>
