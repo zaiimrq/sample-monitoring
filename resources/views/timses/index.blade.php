@@ -8,7 +8,8 @@
 
         <!-- TABEL DOKUMEN -->
         <div class="table-container-user">
-            <button type="button" class="btn btn-primary upload" data-bs-toggle="modal" data-bs-target="#uploadModal">
+            <button type="button" class="btn btn-primary upload mb-3" data-bs-toggle="modal"
+                data-bs-target="#uploadModal">
                 Unggah Foto
             </button>
             <table id="table-dukungan" class="table table-striped" style="width:100%; text-align: center;">
@@ -43,7 +44,9 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="3">No data has been uploaded!</td>
+                        <td></td>
+                        <td>No data has been uploaded!</td>
+                        <td></td>
                     </tr>
                     @endforelse
                 </tbody>
@@ -94,6 +97,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
+                                
                                 <label for="file">Pilih Foto :</label>
                                 <input type="file" class="form-control-file" id=" file" name="file">
                                 @error('file')
