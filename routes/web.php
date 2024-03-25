@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Timses\DashboardController;
 use App\Models\Ktp;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', function () {
         $total_dukungan = Ktp::count();
         return view('admin.index', compact('total_dukungan'));
-    })->name('admin-home');
+    })->name('admin.dashboard');
     
     Route::get('/dashboard/kpi-timses', function () {
         return view('admin.kpi-timses');
@@ -24,13 +25,12 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
 // USER ROUTE
 Route::prefix('timses')->middleware(['auth', 'role:timses'])->group(function () {
-    Route::get('/dashboard', function (Request $request) {
-        $ktp = Ktp::where('user_id', '=', $request->user()->id)->get();
-        return view('timses.index', compact('ktp'));
-    })->name('dashboard');
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('dashboard', 'index')->name('timses.dashboard');
+        Route::post('dashboard', 'store')->name('ktp.upload');
+        Route::delete('dashboard', 'destroy')->name('ktp.destroy');
+    });
 
-    Route::post('/dashboard', UploadKtpController::class)->name('ktp.upload');
-    Route::delete('/dashboard', [UploadKtpController::class, 'destroy'])->name('ktp.destroy');
 });
 
 

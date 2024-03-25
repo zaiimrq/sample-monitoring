@@ -27,7 +27,7 @@ class LoginController extends Controller
             $user = Auth::user();
             $request->session()->regenerate();
             return response()->redirectToIntended(
-                $user->hasRole('admin') ? route('admin-home') : route('dashboard')
+                $user->hasRole('admin') ? route('admin.dashboard') : route('timses.dashboard')
             );
         } else {
             return back()->withErrors([

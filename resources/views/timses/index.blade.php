@@ -8,7 +8,7 @@
 
         <!-- TABEL DOKUMEN -->
         <div class="table-container-user">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+            <button type="button" class="btn btn-primary upload" data-bs-toggle="modal" data-bs-target="#uploadModal">
                 Unggah Foto
             </button>
             <table id="table-dukungan" class="table table-striped" style="width:100%; text-align: center;">
@@ -76,8 +76,29 @@
                             method="post">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="file">Pilih Foto:</label>
-                                <input type="file" class="form-control-file" id="file" name="file">
+                                <label for="nik">Nik :</label>
+                                <input type="text" class="form-control @error('nik')
+                                    is-invalid
+                                @enderror" value="{{ old('nik') }}" id="nik" name="nik">
+                                @error('nik')
+                                <span class="invalid-feedback d-block">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="name">Nama :</label>
+                                <input type="text" class="form-control @error('name')
+                                    is-invalid
+                                @enderror" value="{{ old('name') }}" id="name" name="name">
+                                @error('name')
+                                <span class="invalid-feedback d-block">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="file">Pilih Foto :</label>
+                                <input type="file" class="form-control-file" id=" file" name="file">
+                                @error('file')
+                                <span class="invalid-feedback d-block">{{ $message }}</span>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Upload</button>
                         </form>
@@ -92,12 +113,21 @@
         $(function(){
             $('#table-dukungan').DataTable()
 
-
             $('.preview').click(function(){
                 const path = $(this).attr('src')
                 $('#ktp img').attr('src', path)
             })
+
+
         })
     </script>
     @endpush
+
+    @pushIf($errors->any(), 'scripts')
+    <script>
+        $(function(){
+                $('.upload').click()
+            })
+    </script>
+    @endPushIf
 </x-app-layout>
