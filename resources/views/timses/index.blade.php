@@ -16,6 +16,8 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Nik</th>
+                        <th>Name</th>
                         <th>File</th>
                         <th>Action</th>
                     </tr>
@@ -25,6 +27,8 @@
                     @forelse ($ktp as $k)
                     <tr>
                         <td width="10%">{{ $loop->iteration }}</td>
+                        <td>{{ $k->nik }}</td>
+                        <td>{{ $k->name }}</td>
                         <td>
                             <!-- Connect ke Database lalu tampilkan nama file di sini, namun bisa di preview -->
                             <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-thumbnail preview" style="cursor:
@@ -45,7 +49,9 @@
                     @empty
                     <tr>
                         <td></td>
+                        <td></td>
                         <td>No data has been uploaded!</td>
+                        <td></td>
                         <td></td>
                     </tr>
                     @endforelse
