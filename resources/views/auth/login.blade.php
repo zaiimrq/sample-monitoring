@@ -1,4 +1,3 @@
-
 @section('title', __('Login'))
 <x-guest-layout>
     <section class="login">
@@ -21,7 +20,7 @@
                                     Sistem Management Informasi Tim Sukses
                                 </div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body shadow-lg">
                                 <form action="{{ route('login.store') }}" method="post">
                                     @csrf
                                     <div class="form-group mb-3">
