@@ -10,23 +10,23 @@ use App\Http\Controllers\UploadKtpController;
 
 //ADMIN ROUTE
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin-home', function () {
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/dashboard', function () {
         $total_dukungan = Ktp::count();
-        return view('admin-home', compact('total_dukungan'));
+        return view('admin.index', compact('total_dukungan'));
     })->name('admin-home');
     
-    Route::get('/kpi-timses', function () {
-        return view('kpi');
+    Route::get('/dashboard/kpi-timses', function () {
+        return view('admin.kpi-timses');
     })->name('kpi-timses');
 });
 
 
 // USER ROUTE
-Route::middleware(['auth', 'role:timses'])->group(function () {
+Route::prefix('timses')->middleware(['auth', 'role:timses'])->group(function () {
     Route::get('/dashboard', function (Request $request) {
         $ktp = Ktp::where('user_id', '=', $request->user()->id)->get();
-        return view('user-home', compact('ktp'));
+        return view('timses.index', compact('ktp'));
     })->name('dashboard');
 
     Route::post('/dashboard', UploadKtpController::class)->name('ktp.upload');
