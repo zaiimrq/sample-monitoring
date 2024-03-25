@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Ktp;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -11,7 +12,8 @@ use App\Http\Controllers\UploadKtpController;
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-home', function () {
-        return view('admin-home');
+        $total_dukungan = Ktp::count();
+        return view('admin-home', compact('total_dukungan'));
     })->name('admin-home');
     
     Route::get('/kpi-timses', function () {
