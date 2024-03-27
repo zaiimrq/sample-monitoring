@@ -4,9 +4,8 @@
     <header class="header container mt-4">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h1 class="display-6"><a href="{{ route('admin-home') }}"><i class='bx bx-arrow-back'></i></a> TIM
-                    SUKSES 1
-                    - JAKSON WANG</h1>
+                <h1 class="display-6"><a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a> TIM
+                    SUKSES {{ $user->id }} - {{ Str::upper($user->name) }}</h1>
             </div>
             <div class="row">
                 <div class="col-md-6 text-center">

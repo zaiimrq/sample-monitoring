@@ -16,10 +16,10 @@
                     KPI TIM SUKSES
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('kpi-timses')}}">TIM SUKSES TESTING</a>
-                    <a class="dropdown-item" href="#">TIM SUKSES BLABLA</a>
-                    <!-- <div class="dropdown-divider"></div> -->
-                    <a class="dropdown-item" href="#">TIM SUKSES BLABLA</a>
+                    @foreach ($timses as $t)
+                    <a class="dropdown-item" href="{{ route('kpi-timses', ['user' => $t->username]) }}">{{ $t->name
+                        }}</a>
+                    @endforeach
                 </div>
             </div>
             <a class="nav-link" href="">GRAFIK KINERJA</a>
