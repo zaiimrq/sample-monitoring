@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
+use App\Models\User;
+use App\Service\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\AuthenticationException;
 
 class LoginController extends Controller
 {
@@ -14,25 +16,34 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request): RedirectResponse
+    public function login(Request $request, UserService $userService)
     {
+
         $validated = $request->validate([
             'username' => ['required', 'min:5', 'max:20'],
             'password' => ['required', 'min:5']
         ]);
 
+        try {
+            if ($userService->login($validated)) 
+            {
+                $user = User::findOrFail(Auth::user()->id);
+                $request->session()->regenerate();
 
-        if (Auth::attempt($validated)) {
+                return response()->redirectToIntended(
+                        $user->when($user->hasRole('admin'), 
+                            fn() => route('admin.dashboard'), 
+                            fn() => route('timses.dashboard')
+                        )
+                );
+            }
 
-            $user = Auth::user();
-            $request->session()->regenerate();
-            return response()->redirectToIntended(
-                $user->hasRole('admin') ? route('admin.dashboard') : route('timses.dashboard')
-            );
-        } else {
+        } catch(AuthenticationException $e){
+            
             return back()->withErrors([
-                'username' => 'Username atau password salah !'
-            ])->onlyInput('usename');
+                'username' => $e->getMessage()
+            ])->onlyInput('username');
         }
+    
     }
 }

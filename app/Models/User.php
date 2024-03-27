@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function ktp(): HasOne
     {
-        return $this->hasOne('ktp', 'user_id', 'id');
+        return $this->hasOne(Ktp::class, 'user_id', 'id');
     }
 }

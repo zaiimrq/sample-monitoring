@@ -8,6 +8,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -22,12 +23,20 @@ return Application::configure(basePath: dirname(__DIR__))
             'role_or_permission' => RoleOrPermissionMiddleware::class
         ]);
 
-        $middleware->redirectUsersTo(function (Request $request) {
-            return url()->previous();
-        });
+        $middleware->redirectUsersTo(
+           fn() => url()->previous()
+        );
+
+        $middleware->redirectGuestsTo(
+            fn() => route('login')
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->renderable(function (UnauthorizedException $e) {
+            return redirect()->to(url()->previous());
+        });
+
+        $exceptions->renderable(function (NotFoundHttpException $e) {
             return redirect()->to(url()->previous());
         });
     })->create();

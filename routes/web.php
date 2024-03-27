@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\Timses\DashboardController;
 use App\Models\Ktp;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\UploadKtpController;
+use App\Http\Controllers\Timses\DashboardController;
+use Spatie\Permission\Models\Role;
 
 //ADMIN ROUTE
 
@@ -44,4 +44,5 @@ Route::get('logout', function (Request $request) {
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return redirect()->route('login');
-})->middleware(['auth'])->name('logout');; 
+})->middleware(['auth'])->name('logout');
+
