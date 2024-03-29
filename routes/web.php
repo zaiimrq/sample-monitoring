@@ -15,6 +15,9 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
         Route::get('dashboard', 'index')->name('admin.dashboard');
         Route::get('dashboard/kpi-timses/{user}', 'getKpiByUsername')->name('kpi-timses');
     });
+
+    //Operasional Page
+    Route::get('operasional', fn() => view('admin.operasional'))->name('admin.operasional');
 });
 
 
