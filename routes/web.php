@@ -18,9 +18,42 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     //Operasional Page
     Route::get('operasional', fn() => view('admin.operasional'))->name('admin.operasional');
     // Grafik Kinerja
-    Route::get('grafik-kinerja', fn()=> view('admin.grafik-kinerja'))->name('admin.grafik-kinerja');
+    Route::get('grafik-kinerja', function () {
+
+        $chartjs = app()->chartjs
+         ->name('barChartTest')
+         ->type('bar')
+         ->size(['width' => 400, 'height' => 200])
+         ->labels(['Label x', 'Label y'])
+         ->datasets([
+             [
+                 "label" => "My First dataset",
+                 'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                 'data' => [69, 59]
+             ],
+             [
+                 "label" => "My First dataset",
+                 'backgroundColor' => ['rgba(255, 99, 132, 0.3)', 'rgba(54, 162, 235, 0.3)'],
+                 'data' => [65, 12]
+             ]
+         ])
+         ->options([
+            "scales" => [
+                "y" => [
+                    "beginAtZero" => true
+                    ]
+                ]
+         ]);
+
+        return view('admin.grafik-kinerja', [
+            'chart' => $chartjs
+        ]);
+    })->name('admin.grafik-kinerja');
     // KTP pendukung
-    Route::get('kpi-ktp-pendukung', fn()=> view('admin.kpi-ktp-pendukung'))->name('admin.kpi-ktp-pendukung');
+    Route::get('kpi-ktp-pendukung', function () {
+        $ktp = Ktp::where('user_id', auth()->user()->id)->get(['name', 'nik', 'file']);
+        return view('admin.kpi-ktp-pendukung', compact('ktp') );
+    })->name('admin.kpi-ktp-pendukung');
     // KTP pendukung
     Route::get('kpi-operasional', fn()=> view('admin.kpi-operasional'))->name('admin.kpi-operasional');
     // KTP pendukung

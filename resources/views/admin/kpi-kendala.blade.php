@@ -2,7 +2,7 @@
 <x-app-layout>
     <div class="content">
         <div class="isi-content">
-            <span class="text-right mb-2"><i class='bx bx-arrow-back'></i></span>
+            <a href="{{ url()->previous() }}" class="text-right mb-2"><i class='bx bx-arrow-back'></i></a>
             <div class="text-label-bold text-center mb-3">
                 <h3 class="mb-3">TMSES - KENDALA TIM SUKSES</h3>
             </div>
@@ -27,4 +27,13 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+    <script>
+        $(function (){
+                $('#table-kpi-kendala').DataTable({
+                    responsive: true
+                })
+            })
+    </script>
+    @endpush
 </x-app-layout>
