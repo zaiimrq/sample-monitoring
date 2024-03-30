@@ -7,13 +7,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\{Timses\DashboardController as TimsesController, Admin\DashboardController as AdminController};
-use Spatie\Permission\Models\Role;
 
 //ADMIN ROUTE
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('dashboard', 'index')->name('admin.dashboard');
-        Route::get('dashboard/kpi-timses/{user}', 'getKpiByUsername')->name('kpi-timses');
+        Route::get('kpi-timses/{user}', 'getKpiByUsername')->name('kpi-timses');
     });
 
     //Operasional Page

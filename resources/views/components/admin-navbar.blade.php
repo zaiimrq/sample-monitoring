@@ -10,20 +10,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-            <a class="nav-link active" aria-current="page" href="{{ route('admin.dashboard')}}"><i class="fi fi-rs-home"></i> BERANDA</a>
+            <a class="nav-link {{ Route::is('admin.dashboard') ? 'active' : false }}" aria-current="page"
+                href="{{ route('admin.dashboard')}}"><i class="fi fi-rs-home"></i> BERANDA</a>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle {{ Route::is('kpi-timses') ? 'active' : false }} " href="#"
+                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     <i class="fi fi-sr-kpi-evaluation"></i> KPI TIM SUKSES
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach ($timses as $t)
-                    <a class="dropdown-item" href="{{ route('kpi-timses', ['user' => $t->username]) }}">{{ $t->name}}</a>
+                    <a class="dropdown-item" href="{{ route('kpi-timses', ['user' => $t->username]) }}">{{
+                        $t->name}}</a>
                     @endforeach
                 </div>
             </div>
-            <a class="nav-link" href="{{ route('admin.grafik-kinerja')}}"><i class="fi fi-br-chat-arrow-grow"></i> GRAFIK KINERJA</a>
-            <a class="nav-link" href="{{ route('admin.operasional')}}"><i class="fi fi-bs-operation"></i> OPERASIONAL</a>
+            <a class="nav-link {{ Route::is('admin.grafik-kinerja') ? 'active' : false }}"
+                href="{{ route('admin.grafik-kinerja')}}"><i class="fi fi-br-chat-arrow-grow"></i>
+                GRAFIK KINERJA</a>
+            <a class="nav-link {{ Route::is('admin.operasional') ? 'active' : false }}"
+                href="{{ route('admin.operasional')}}"><i class="fi fi-bs-operation"></i>
+                OPERASIONAL</a>
             <a class="nav-link" href=""><i class="fi fi-ss-folder-open"></i> TABULASI DATA</a>
             <a class="nav-link" href="{{ route('logout') }}"><i class='bx bx-log-out'></i></a>
         </div>
