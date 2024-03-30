@@ -17,7 +17,7 @@ class DashboardController extends Controller
      */
     public function index(Request $request): View
     {
-        $ktp = Ktp::where('user_id', '=', $request->user()->id)->get();
+        $ktp = Ktp::where('user_id', $request->user()->id)->get(['name', 'nik', 'file']);
         return view('timses.index', compact('ktp')); 
     }
 

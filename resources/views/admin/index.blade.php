@@ -50,9 +50,7 @@
                 <div class="text-hero-bold">
                     GRAFIK TOTAL DUKUNGAN
                 </div>
-                <div class="container">
-                    {!! $chart->container() !!}
-                </div>
+                {!! $chart->render() !!}
                 {{-- <img src="{{ asset('img/chart.svg')}}" class="img-fluid" alt="CHART" width="80%"> --}}
             </div>
         </div>
@@ -75,10 +73,4 @@
             </div>
         </div>
     </div> -->
-
-    @push('scripts')
-    <script src="{{ $chart->cdn() }}"></script>
-
-    {{ $chart->script() }}
-    @endpush
 </x-app-layout>
