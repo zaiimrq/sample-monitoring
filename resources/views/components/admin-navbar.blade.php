@@ -10,8 +10,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
+            <a class="nav-link active" aria-current="page" href="{{ route('admin.dashboard')}}"><i class="fi fi-rs-home"></i> BERANDA</a>
             <div class="nav-item dropdown">
-                <a class="nav-link active dropdown-toggle" aria-current="page" href="#" id="navbarDropdown"
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                     role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fi fi-sr-kpi-evaluation"></i> KPI TIM SUKSES
                 </a>
@@ -21,7 +22,7 @@
                     @endforeach
                 </div>
             </div>
-            <a class="nav-link" href=""><i class="fi fi-br-chat-arrow-grow"></i> GRAFIK KINERJA</a>
+            <a class="nav-link" href="{{ route('admin.grafik-kinerja')}}"><i class="fi fi-br-chat-arrow-grow"></i> GRAFIK KINERJA</a>
             <a class="nav-link" href="{{ route('admin.operasional')}}"><i class="fi fi-bs-operation"></i> OPERASIONAL</a>
             <a class="nav-link" href=""><i class="fi fi-ss-folder-open"></i> TABULASI DATA</a>
             <a class="nav-link" href="{{ route('logout') }}"><i class='bx bx-log-out'></i></a>

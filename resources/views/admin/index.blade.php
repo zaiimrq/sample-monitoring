@@ -20,7 +20,7 @@
     <div class="content">
 
         <div class="col-md-12 mb-4">
-            <!-- start single alert -->
+            <!-- start total dukungan alert -->
             <div class="alert alert-success d-flex align-items-center">
             <div class="alert-message">
                 <div class="row">
@@ -35,13 +35,13 @@
                     </div>
                     <div class="col-md-5">
                         <span class="text-card-bold">
-                            1289900
+                            {{ $total_dukungan }}
                         </span>
                     </div>
                 </div>
             </div>
             </div>
-            <!-- end single alert -->
+            <!-- end total dukungan alert -->
         </div>
 
         <div class="isi-content">
@@ -66,7 +66,7 @@
                 <h5 class="card-header bg-warning">Kabar Terkini</h5>
                 <div class="card-body">
                     <h5>Total Dukungan</h5>
-                    <h3 class="text-danger">{{ $total_dukungan }}</h3>
+                    <h3 class="text-danger"></h3>
                 </div>
             </div>
         </div>

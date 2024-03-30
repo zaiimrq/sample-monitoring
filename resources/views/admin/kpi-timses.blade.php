@@ -89,7 +89,7 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-ktp-pendukung')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                         <tr>
                             <th class="vertical-header">
@@ -98,7 +98,7 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-operasional')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                         <tr>
                             <th class="vertical-header">
@@ -107,7 +107,7 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-kendala')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                         <tr>
                             <th class="vertical-header">
@@ -116,7 +116,7 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-permintaan-masyarakat')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                     </tbody>
                 </table>

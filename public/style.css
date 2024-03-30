@@ -148,10 +148,12 @@ body {
 .content{
     background-color: var(--back-abu);
     padding: 2.5rem 3rem;
+    min-height: 100vh;
 }
 .isi-content{
     background-color: var(--white);
     padding: 20px 30px;
+    min-height: 80vh;
 }
 /* ALERT ICON */
 .alert-icon{
