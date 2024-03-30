@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="#">
         <span>NASON UTI</span>
     </a>
-    <button class="navbar-toggler shadow-none border-none" type="button" data-bs-toggle="collapse"
+    <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
         aria-label="Toggle navigation">
         <i class="fi fi-br-bars-staggered"></i>

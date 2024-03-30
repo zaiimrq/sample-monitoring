@@ -1,65 +1,67 @@
 @section('title', __('Dashboard'))
 <x-app-layout>
-    <section class="wrapper">
-        <h3>Upload Dokumen</h3>
-        <p>Silahkan Upload Foto KTP format gambar .jpg/.png/.jpeg. Pastikan gambar terlihat jelas dan terang. Ukuran
-            file
-            tidak boleh lebih dari X MB.</p>
+    <div class="content">
+        <div class="isi-content">
+            <h3><i class="fi fi-rs-file-upload"></i> Upload Dokumen</h3>
+            <p>Silahkan Upload Foto KTP format gambar .jpg/.png/.jpeg. Pastikan gambar terlihat jelas dan terang. Ukuran
+                file
+                tidak boleh lebih dari X MB.</p>
 
-        <!-- TABEL DOKUMEN -->
-        <div class="table-container-user">
-            <button type="button" class="btn btn-primary upload mb-3" data-bs-toggle="modal"
-                data-bs-target="#uploadModal">
-                Unggah Foto
-            </button>
-            <table id="table-dukungan" class="table table-striped" style="width:100%; text-align: center;">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nik</th>
-                        <th>Name</th>
-                        <th>File</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+            <!-- TABEL DOKUMEN -->
+            <div class="table-container-user">
+                <button type="button" class="btn btn-primary upload mb-3" data-bs-toggle="modal"
+                    data-bs-target="#uploadModal">
+                    <i class="fi fi-br-upload"></i>
+                    Unggah
+                </button>
+                <table id="table-dukungan" class="table table-striped" style="width:100%; text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nik</th>
+                            <th>Name</th>
+                            <th>File</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    @forelse ($ktp as $k)
-                    <tr>
-                        <td width="10%">{{ $loop->iteration }}</td>
-                        <td>{{ $k->nik }}</td>
-                        <td>{{ $k->name }}</td>
-                        <td>
-                            <!-- Connect ke Database lalu tampilkan nama file di sini, namun bisa di preview -->
-                            <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-thumbnail preview" style="cursor:
-                            pointer" alt="Gambar KTP" data-bs-toggle="modal" data-bs-target="#ktp">
-                        </td>
-                        <td width="20%">
-                            <form action="" method="post" class="d-inline">
-                                <button type="submit" class="btn btn-warning">Edit</button>
-                            </form>
-                            <form action="{{ route('ktp.destroy') }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <input type="hidden" name="fileName" value="{{ $k->file }}">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @empty
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>No data has been uploaded!</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                    <tbody>
+                        @forelse ($ktp as $k)
+                        <tr>
+                            <td width="10%">{{ $loop->iteration }}</td>
+                            <td>{{ $k->nik }}</td>
+                            <td>{{ $k->name }}</td>
+                            <td>
+                                <!-- Connect ke Database lalu tampilkan nama file di sini, namun bisa di preview -->
+                                <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-thumbnail preview" style="cursor:
+                                pointer" alt="Gambar KTP" data-bs-toggle="modal" data-bs-target="#ktp">
+                            </td>
+                            <td width="20%">
+                                <form action="" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-warning">Edit</button>
+                                </form>
+                                <form action="{{ route('ktp.destroy') }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <input type="hidden" name="fileName" value="{{ $k->file }}">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>No data has been uploaded!</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
 
-        <!-- MODAL PREVIEW KTP -->
+            <!-- MODAL PREVIEW KTP -->
         <div class="modal fade" id="ktp" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -123,7 +125,12 @@
                 </div>
             </div>
         </div>
-    </section>
+
+        </div>
+    </div>
+        
+
+        
 
     @push('scripts')
     <script>
@@ -134,6 +141,7 @@
                 const path = $(this).attr('src')
                 $('#ktp img').attr('src', path)
             })
+
 
 
         })
