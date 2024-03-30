@@ -175,9 +175,11 @@ footer {
 .wrapper {
     padding: 3rem 4rem;
 }
-/* .table-container-user{
-    padding: 3rem;
-} */
+
+/* TABEL */
+thead{
+    text-align: center;
+}
 .table-container-user td img {
     max-width: 4rem;
 }

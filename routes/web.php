@@ -71,6 +71,13 @@ Route::prefix('timses')->middleware(['auth', 'role:timses'])->group(function () 
         Route::delete('dashboard', 'destroy')->name('ktp.destroy');
     });
 
+    //OPERASIONAL
+    Route::get('operasional', fn() => view('timses.operasional'))->name('timses.operasional');
+    //KENDALA
+    Route::get('kendala', fn() => view('timses.kendala'))->name('timses.kendala');
+    //PERMINTAAN MASYARAKAT
+    Route::get('permintaan', fn() => view('timses.permintaan'))->name('timses.permintaan');
+
 });
 
 
