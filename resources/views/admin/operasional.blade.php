@@ -1,12 +1,20 @@
-@section('title', 'KPI')
+@section('title', 'Operasional')
 <x-app-layout>
 
 <div class="content">
     <div class="isi-content container">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h3 class="display-6"><a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a> TIM
-                    SUKSES {{ $user->id }} - {{ Str::upper($user->name) }}</h3>
+                <div class="text-label-reguler">
+                    Silahkan klik untuk melihat laporan operasional Tim Sukses
+                </div>
+                <select name="operasional-timses">
+                    <option selected value="Timses-1">Tim Sukses - 1</option>
+                    <option value="Timses-2">Tim Sukses - 2</option>
+                    <option value="Timses-3">Tim Sukses - 3</option>
+                    <option value="Timses-4">Tim Sukses - 4</option>
+                    <option value="Timses-5">Tim Sukses - 5</option>
+                </select>
             </div>
             <div class="row">
                 <div class="col-md-6 text-center">

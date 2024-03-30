@@ -1,7 +1,40 @@
 @section('title', __('Login'))
 <x-guest-layout>
-    <section class="login">
-        <div class="container container-login">
+    <div class="login-container" style="height: 100vh;">
+        <div class="row h-100">
+            <div class="col-md-6 logo-side text-center">
+                <img src="{{ asset('img/graph.png') }}" class="img-fluid mt-5" alt="img" style="height: 60%;width:auto;">
+                <div class="text-hero-regular text-white">Monitoring mudah. Kapan saja dan dimana saja. </div>
+            </div>
+            <div class="col-md-6 form-side">
+                <div class="form-container" style="margin-left: 50px;">
+                    <div class="text-hero-bold">BUPATIKU</div>
+                    <div class="text-hero-regular">Sistem Management Informasi Tim Sukses</div>
+                    <hr>
+                    <form action="{{ route('login.store') }}" method="post">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <label for="username">Username</label><br>
+                            <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Masukkan Username" autocomplete="none" required>
+                            @error('username')
+                            <span class="invalid-feedback d-block">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password">Password</label><br>
+                            <input type="password" class="form-control @error('username') is-invalid @enderror" name="password" placeholder="Masukkan Password" required>
+                            @error('password')
+                            <span class="invalid-feedback d-block">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary">MASUK</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- <div class="container container-login">
             <div class="row">
 
                 <div class="col-md-6 text-center">
@@ -50,6 +83,5 @@
                 </div>
 
             </div>
-        </div>
-    </section>
+        </div> -->
 </x-guest-layout>
