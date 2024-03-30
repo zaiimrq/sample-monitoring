@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use App\Service\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\AuthenticationException;
 
 class LoginController extends Controller
 {
@@ -17,7 +15,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request, UserService $userService)
+    public function login(Request $request)
     {
 
         $validated = $request->validate([
@@ -25,8 +23,7 @@ class LoginController extends Controller
             'password' => ['required', 'min:5']
         ]);
 
-        try {
-            if ($userService->login($validated)) 
+            if (Auth::attempt($validated)) 
             {
                 $user = User::findOrFail(Auth::user()->id);
                 $request->session()->regenerate();
@@ -37,14 +34,13 @@ class LoginController extends Controller
                             fn() => route('timses.dashboard')
                         )
                 );
+            } else {
+                return back()->withErrors([
+                    'username' => 'Username atau passwor salah !'
+                ])->onlyInput('username');
             }
 
-        } catch(AuthenticationException $e){
             
-            return back()->withErrors([
-                'username' => $e->getMessage()
-            ])->onlyInput('username');
-        }
     
     }
 }
