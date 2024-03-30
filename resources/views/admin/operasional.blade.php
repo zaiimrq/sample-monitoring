@@ -1,3 +1,4 @@
+
 @section('title', 'Operasional')
 <x-app-layout>
 
@@ -54,5 +55,3 @@
            });
     </script>
 @endpush -->
-
-</x-app-layout>
