@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
-        <!-- <img src="{{ asset('img/logo.jpg') }}" alt="LOGO" > -->
         <span>NASON UTI</span>
     </a>
     <button class="navbar-toggler shadow-none border-none" type="button" data-bs-toggle="collapse"

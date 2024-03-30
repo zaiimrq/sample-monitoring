@@ -1,9 +1,9 @@
 @section('title', 'Dashboard')
 <x-app-layout>
-    <div class="header container ">
-        <div class="row">
+    {{-- <div class="container"> --}}
+        <div class="row bg-success">
             <div class="col-md-6 text-center">
-                <img src="{{ asset('img/profile.svg')}}" alt="Foto Hero">
+                <img width="300" height="300" src="{{ asset('img/profile.svg')}}" alt="Foto Hero">
             </div>
             <div class="col-md-6">
                 <div class="text-header-bold mt-3">
@@ -15,7 +15,8 @@
                 </div>
             </div>
         </div>
-    </div>
+        {{--
+    </div> --}}
 
     <div class="content">
 
