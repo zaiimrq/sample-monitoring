@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use App\Service\UserService;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -15,7 +16,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
+    public function login(Request $request, UserService $userService)
     {
 
         $validated = $request->validate([
@@ -23,7 +24,7 @@ class LoginController extends Controller
             'password' => ['required', 'min:5']
         ]);
 
-            if (Auth::attempt($validated)) 
+            if ($userService->login($validated))
             {
                 $user = User::findOrFail(Auth::user()->id);
                 $request->session()->regenerate();
