@@ -18,6 +18,16 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     //Operasional Page
     Route::get('operasional', fn() => view('admin.operasional'))->name('admin.operasional');
+    // Grafik Kinerja
+    Route::get('grafik-kinerja', fn()=> view('admin.grafik-kinerja'))->name('admin.grafik-kinerja');
+    // KTP pendukung
+    Route::get('kpi-ktp-pendukung', fn()=> view('admin.kpi-ktp-pendukung'))->name('admin.kpi-ktp-pendukung');
+    // KTP pendukung
+    Route::get('kpi-operasional', fn()=> view('admin.kpi-operasional'))->name('admin.kpi-operasional');
+    // KTP pendukung
+    Route::get('kpi-kendala', fn()=> view('admin.kpi-kendala'))->name('admin.kpi-kendala');
+    // KTP pendukung
+    Route::get('kpi-permintaan-masyarakat', fn()=> view('admin.kpi-permintaan-masyarakat'))->name('admin.kpi-permintaan-masyarakat');
 });
 
 

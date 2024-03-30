@@ -1,19 +1,23 @@
 @section('title', 'KPI')
 <x-app-layout>
 
-    <header class="header container mt-4">
+<div class="content">
+    <div class="isi-content container">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h1 class="display-6"><a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a> TIM
-                    SUKSES {{ $user->id }} - {{ Str::upper($user->name) }}</h1>
+                <h3 class="display-6"><a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a> TIM
+                    SUKSES {{ $user->id }} - {{ Str::upper($user->name) }}</h3>
             </div>
             <div class="row">
                 <div class="col-md-6 text-center">
-                    <img src="{{ asset('img/profile.svg')}}" alt="Foto Hero">
+                    <img src="{{ asset('img/profile.svg')}}" alt="Foto Hero" style="width:40%;">
                 </div>
                 <div class="col-md-6">
                     <div class="text-label-bold">
-                        <h4>Informasi Profil</h4>
+                        <h4>
+                            <i class="fi fi-rr-user"></i>
+                             Informasi Profil
+                        </h4>
                     </div>
                     <hr>
                     <div class="text-label">
@@ -24,7 +28,10 @@
 
                     <div class="text-label-bold mt-4">
                         <h3>
-                            <div class="text-danger">TARGET : 5000</div>
+                            <div class="text-danger">
+                                <i class="fi fi-ss-exclamation"></i>
+                                TARGET : 5000
+                            </div>
                         </h3>
                     </div>
                 </div>
@@ -35,14 +42,17 @@
         <div class="row">
             <div class="col-md-12 mt-5 mb-3">
                 <div class="text-label-bold">
-                    <h4>Informasi Data</h4>
+                    <h4>
+                        <i class="fi fi-ss-folder-open"></i>
+                        Informasi Data
+                    </h4>
                 </div>
                 <hr>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-12 mr-5 ml-5">
+            <div class="col-md-12">
                 <table class="table table-kpi table-borderless">
                     <tbody>
                         <tr>
@@ -79,7 +89,7 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-ktp-pendukung')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                         <tr>
                             <th class="vertical-header">
@@ -88,7 +98,7 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-operasional')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                         <tr>
                             <th class="vertical-header">
@@ -97,7 +107,7 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-kendala')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                         <tr>
                             <th class="vertical-header">
@@ -106,13 +116,16 @@
                                 </div>
                             </th>
                             <td class="col-1">:</td>
-                            <td class="col-2"><button class="btn btn-warning">Lihat</button></td>
+                            <td class="col-2"><a href="{{ route('admin.kpi-permintaan-masyarakat')}}"><button class="btn btn-warning">Lihat</button></a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-    </header>
+    </div>
+
+</div>
+    
 
 </x-app-layout>

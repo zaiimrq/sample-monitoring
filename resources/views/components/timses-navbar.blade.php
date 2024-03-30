@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #2E8B57;">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
         <!-- <img src="{{ asset('img/logo.jpg') }}" alt="LOGO" > -->
         <span>NASON UTI</span>
