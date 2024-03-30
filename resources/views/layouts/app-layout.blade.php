@@ -7,6 +7,7 @@
     <title>Monitoring | @yield('title', 'NASON UTI')</title>
     {{-- Styles --}}
     <x-styles />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.js"></script>
 </head>
 
 <body>
