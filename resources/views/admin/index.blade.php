@@ -1,9 +1,9 @@
 @section('title', 'Dashboard')
 <x-app-layout>
     {{-- <div class="container"> --}}
-        <div class="row bg-success">
+        <div class="row" style="background-color: var(--primary-light)">
             <div class="col-md-6 text-center">
-                <img width="300" height="300" src="{{ asset('img/profile.svg')}}" alt="Foto Hero">
+                <img class="p-3" width="300" height="300" src="{{ asset('img/profile.svg')}}" alt="Foto Hero">
             </div>
             <div class="col-md-6">
                 <div class="text-header-bold mt-3">
@@ -50,7 +50,10 @@
                 <div class="text-hero-bold">
                     GRAFIK TOTAL DUKUNGAN
                 </div>
-                <img src="{{ asset('img/chart.svg')}}" class="img-fluid" alt="CHART" width="80%">
+                <div class="container">
+                    {!! $chart->container() !!}
+                </div>
+                {{-- <img src="{{ asset('img/chart.svg')}}" class="img-fluid" alt="CHART" width="80%"> --}}
             </div>
         </div>
     </div>
@@ -72,4 +75,10 @@
             </div>
         </div>
     </div> -->
+
+    @push('scripts')
+    <script src="{{ $chart->cdn() }}"></script>
+
+    {{ $chart->script() }}
+    @endpush
 </x-app-layout>
