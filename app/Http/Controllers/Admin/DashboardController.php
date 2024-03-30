@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Charts\DukunganChart;
 use App\Models\Ktp;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,11 +12,12 @@ use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
-    public function index(): View
+    public function index(DukunganChart $dukunganChart): View
     {
         return view('admin.index', [
             'total_dukungan' => Ktp::count(),
-            'timses' => Role::findByName('timses')->users
+            'timses' => Role::findByName('timses')->users,
+            'chart' => $dukunganChart->build()
         ]);
     }
 
