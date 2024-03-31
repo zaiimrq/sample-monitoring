@@ -10,10 +10,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-            <a class="nav-link" href="{{ route('timses.dashboard')}}"><i class="fi fi-rs-file-upload"></i> UPLOAD DUKUNGAN</a>
-            <a class="nav-link" href="{{ route('timses.operasional')}}"><i class="fi fi-bs-operation"></i> OPERASIONAL</a>
-            <a class="nav-link" href="{{ route('timses.kendala')}}"><i class="fi fi-br-exclamation"></i> KENDALA</a>
-            <a class="nav-link" href="{{ route('timses.permintaan')}}"><i class="fi fi-br-exclamation"></i> PERMINTAAN MASYARAKAT</a>
+            <a class="nav-link {{ Route::is('timses.dashboard') ? 'active' : false }}"
+                href="{{ route('timses.dashboard')}}"><i class="fi fi-rs-file-upload"></i> UPLOAD DUKUNGAN</a>
+            <a class="nav-link {{ Route::is('timses.operasional') ? 'active' : false }}"
+                href="{{ route('timses.operasional')}}"><i class="fi fi-bs-operation"></i> OPERASIONAL</a>
+            <a class="nav-link {{ Route::is('timses.permintaan') ? 'active' : false }}"
+                href="{{ route('timses.permintaan')}}"><i class="fi fi-rs-journal-alt"></i> PERMINTAAN MASYARAKAT</a>
+            <a class="nav-link {{ Route::is('timses.kendala') ? 'active' : false }}"
+                href="{{ route('timses.kendala')}}"><i class="fi fi-br-exclamation"></i> KENDALA</a>
             <a class="nav-link" href="{{ route('logout') }}"><i class='bx bx-log-out'></i></a>
         </div>
     </div>
