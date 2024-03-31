@@ -4,10 +4,10 @@
         <div class="row h-100">
             <div class="col-md-6 logo-side text-center">
                 <img src="{{ asset('img/graph.png') }}" class="img-fluid mt-5" alt="img" style="height: 60%;width:auto;">
-                <div class="text-hero-regular text-white">Monitoring mudah. Kapan saja dan dimana saja. </div>
+                <div class="text-hero-regular text-white">Selamat Datang!</div>
             </div>
             <div class="col-md-6 form-side">
-                <div class="form-container" style="margin-left: 50px;">
+                <div class="form-container">
                     <div class="text-hero-bold">BUPATIKU</div>
                     <div class="text-hero-regular">Sistem Management Informasi Tim Sukses</div>
                     <hr>

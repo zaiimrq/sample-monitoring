@@ -5,7 +5,7 @@
     <div class="isi-content container">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h3 class="display-6"><a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a> TIM
+                <h3 class="display-8"><a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a> TIM
                     SUKSES {{ $user->id }} - {{ Str::upper($user->name) }}</h3>
             </div>
             <div class="row">
@@ -13,26 +13,25 @@
                     <img src="{{ asset('img/profile.svg')}}" alt="Foto Hero" style="width:40%;">
                 </div>
                 <div class="col-md-6">
-                    <div class="text-label-bold">
-                        <h4>
+                    <div class="text-label-bold mt-4">
+                        <h5>
                             <i class="fi fi-rr-user"></i>
                              Informasi Profil
-                        </h4>
+                        </h5>
                     </div>
                     <hr>
                     <div class="text-label">
-                        Nama : Jakson Wang
+                        <span>Nama : Jakson Wang</span><br>
+                        <span>Wilayah Distrik : Lorem ipsum</span><br>
                     </div>
-                    <p>Wilayah Distrik : Lorem ipsum</p>
-                    <p>Cek Monitoring Real Time - </p>
 
                     <div class="text-label-bold mt-4">
-                        <h3>
+                        <h4>
                             <div class="text-danger">
                                 <i class="fi fi-ss-exclamation"></i>
-                                TARGET : 5000
+                                TARGET DUKUNGAN : 5000
                             </div>
-                        </h3>
+                        </h4>
                     </div>
                 </div>
 
@@ -42,10 +41,10 @@
         <div class="row">
             <div class="col-md-12 mt-5 mb-3">
                 <div class="text-label-bold">
-                    <h4>
-                        <i class="fi fi-ss-folder-open"></i>
-                        Informasi Data
-                    </h4>
+                    <h5>
+                        <i class="fi fi-sr-kpi-evaluation"></i>
+                        KEY PERFORMANCE INDICATOR
+                    </h5>
                 </div>
                 <hr>
             </div>

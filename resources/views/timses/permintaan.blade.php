@@ -2,8 +2,10 @@
 <x-app-layout>
     <div class="content">
         <div class="isi-content">
-            <h3><i class="fi fi-rs-file-upload"></i> Lapor Permintaan Masyarakat</h3>
-            <p>Harap laporkan semua permintaan masyarakat secara rinci dan jelas.</p>
+            <h4><i class="fi fi-rs-file-upload"></i> Lapor Permintaan Masyarakat</h4>
+            <div class="text-label">
+                <p>Harap laporkan semua permintaan masyarakat secara rinci dan jelas.</p>
+            </div>
 
             <button type="button" class="btn btn-primary upload mb-3" data-bs-toggle="modal"
                 data-bs-target="#uploadModal">
@@ -28,9 +30,9 @@
                             <td>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
                                 2. Harum aspernatur necessitatibus veritatis voluptas maiores repellat. Sapiente
                                 temporibus enim voluptate ad.</td>
-                            <td>
-                                <button type="submit" class="btn btn-warning">Edit</button>
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                            <td class="text-center">
+                                <button type="submit" class="btn btn-warning"><i class="fi fi-rr-edit"></i></button>
+                                <button type="submit" class="btn btn-danger"><i class="fi fi-rr-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>

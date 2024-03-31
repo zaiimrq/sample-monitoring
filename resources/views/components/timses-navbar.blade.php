@@ -8,7 +8,7 @@
         aria-label="Toggle navigation">
         <i class="fi fi-br-bars-staggered"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
         <div class="navbar-nav ms-auto">
             <a class="nav-link {{ Route::is('timses.dashboard') ? 'active' : false }}"
                 href="{{ route('timses.dashboard')}}"><i class="fi fi-rs-file-upload"></i> UPLOAD DUKUNGAN</a>
