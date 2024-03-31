@@ -19,7 +19,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 overflow-x-auto">
                     <table class="table table striped" id="table-operasional">
                         <thead>
                             <tr>
