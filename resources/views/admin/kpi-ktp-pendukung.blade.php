@@ -4,10 +4,10 @@
         <div class="isi-content">
             <a href="{{ url()->previous() }}" class="text-right mb-2"><i class='bx bx-arrow-back'></i></a>
             <div class="text-label-bold text-center mb-3">
-                <h3 class="mb-3">TMSES - TABEL KTP PENDUKUNG</h3>
+                <h4 class="mb-3">TMSES - TABEL KTP PENDUKUNG</h4>
             </div>
-            <div class="col-md-12">
-                <table class="table table striped" id="table-kpi-ktp">
+            <div class="col-md-12 mt-5">
+                <table class="table table striped overflow-x-auto" id="table-kpi-ktp">
                     <thead>
                         <tr>
                             <th>No</th>

@@ -2,10 +2,13 @@
 <x-app-layout>
     <div class="content">
         <div class="isi-content">
-            <h3><i class="fi fi-rs-file-upload"></i> Upload Dokumen</h3>
+
+            <h4><i class="fi fi-rs-file-upload"></i> Upload Dokumen</h4>
+            <div class="text-label">
             <p>Silahkan Upload Foto KTP format gambar .jpg/.png/.jpeg. Pastikan gambar terlihat jelas dan terang. Ukuran
                 file
                 tidak boleh lebih dari X MB.</p>
+            </div>
 
             <!-- TABEL DOKUMEN -->
             <button type="button" class="btn btn-primary upload mb-3" data-bs-toggle="modal"
@@ -31,20 +34,20 @@
                             <td width="10%">{{ $loop->iteration }}</td>
                             <td>{{ $k->nik }}</td>
                             <td>{{ $k->name }}</td>
-                            <td>
+                            <td class="text-center">
                                 <!-- Connect ke Database lalu tampilkan nama file di sini, namun bisa di preview -->
                                 <img src="{{ asset('storage/ktp/'. $k->file) }}" class="img-thumbnail preview" style="cursor:
                                 pointer" alt="Gambar KTP" data-bs-toggle="modal" data-bs-target="#ktp">
                             </td>
                             <td width="20%">
                                 <form action="" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-warning">Edit</button>
+                                    <button type="submit" class="btn btn-warning"><i class="fi fi-rr-edit"></i></button>
                                 </form>
                                 <form action="{{ route('ktp.destroy') }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <input type="hidden" name="fileName" value="{{ $k->file }}">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="fi fi-rr-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

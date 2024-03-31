@@ -2,9 +2,11 @@
 <x-app-layout>
     <div class="content">
         <div class="isi-content">
-            <h3><i class="fi fi-rs-file-upload"></i> Lapor Data Operasional</h3>
-            <p>Harap laporkan semua kegiatan operasional terbaru di sini. Mohon masukkan rincian penggunaan dana terbaru
+            <h4><i class="fi fi-rs-file-upload"></i> Lapor Data Operasional</h4>
+            <div class="text-label">
+                <p>Harap laporkan semua kegiatan operasional terbaru di sini. Mohon masukkan rincian penggunaan dana terbaru
                 secara berkala sebagai pelaporan.</p>
+            </div>
 
             <button type="button" class="btn btn-primary upload mb-3" data-bs-toggle="modal"
                 data-bs-target="#uploadModal">
@@ -31,9 +33,9 @@
                             <td>Dana Masuk</td>
                             <td>Rp. 2.900.000</td>
                             <td>Dana Kampanye</td>
-                            <td>
-                                <button type="submit" class="btn btn-warning">Edit</button>
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                            <td class="text-center">
+                                <button type="submit" class="btn btn-warning"><i class="fi fi-rr-edit"></i></button>
+                                <button type="submit" class="btn btn-danger"><i class="fi fi-rr-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
