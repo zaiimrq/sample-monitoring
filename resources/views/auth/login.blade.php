@@ -3,7 +3,7 @@
     <div class="login-container" style="height: 100vh;">
         <div class="row h-100">
             <div class="col-md-6 logo-side text-center">
-                <img src="{{ asset('img/graph.png') }}" class="img-fluid mt-5" alt="img" style="height: 60%;width:auto;">
+                <img src="{{ asset('img/logo.png') }}" class="img-fluid mt-5" alt="img" style="height: 60%;width:auto;">
                 <div class="text-hero-regular text-white">Selamat Datang!</div>
             </div>
             <div class="col-md-6 form-side">

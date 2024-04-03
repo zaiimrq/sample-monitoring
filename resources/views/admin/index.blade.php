@@ -4,11 +4,11 @@
             <div class="col-md-6 text-center mb-3">
                 <img class="p-3" width="300" height="300" src="{{ asset('img/profile.svg')}}" alt="Foto Hero">
             </div>
-            <div class="col-md-6 ">
-                <div class="text-header-bold mt-4 px-3">
+            <div class="col-md-6 text-center ">
+                <div class="text-header-bold mt-5">
                     BUPATIKU
                 </div>
-                <div class="text-header-regular mt-3 px-3">
+                <div class="text-header-regular mt-3">
                     <span>Sistem Management Informasi Tim Sukses</span><br>
                     <span>Cek Monitoring Mudah dan Akurat</span>
                 </div>
