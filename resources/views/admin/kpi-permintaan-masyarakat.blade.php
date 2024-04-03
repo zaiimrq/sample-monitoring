@@ -4,7 +4,7 @@
         <div class="isi-content">
             <a href="{{ url()->previous() }}" class="text-right mb-2"><i class='bx bx-arrow-back'></i></a>
             <div class="text-label-bold text-center mb-3">
-                <h4 class="mb-3">TMSES - PERMINTAAN MASYARAKAT</h4>
+                <h4 class="mb-3">KPI - PERMINTAAN MASYARAKAT</h4>
             </div>
             <div class="col-md-12">
                 <table class="table table striped overflow-x-auto" id="table-kpi-permintaan">
